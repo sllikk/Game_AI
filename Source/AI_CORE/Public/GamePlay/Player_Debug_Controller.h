@@ -16,7 +16,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class AI_CORE_API APlayer_Debug_Controller : public APlayerController
 {
 	GENERATED_BODY()
