@@ -8,11 +8,12 @@
 #include "Camera/CameraComponent.h"
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
 #include "Components/CapsuleComponent.h"
+#include "Player/Custom_MovementComponent.h"
 #include "World_Entity/Interact_Interface.h"
 
 // Sets default values
 APlayer_Character::APlayer_Character(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer.Get()), pMesh1P(nullptr), pCameraComponent(nullptr)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCustom_MovementComponent>(ACharacter::CharacterMovementComponentName)), pMesh1P(nullptr), pCameraComponent(nullptr)
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -32,6 +33,11 @@ APlayer_Character::APlayer_Character(const FObjectInitializer& ObjectInitializer
 	pMesh1P->SetRelativeLocation(FVector(0, 0, -160.0f));
 	pMesh1P->CastShadow = false;
 
+	m_ihealth = m_imaxhealth;
+	m_isuit_charge = m_imaxsuit_charge;
+	m_flsuit_energy = m_flmaxsuit_energy;
+	
+	
 }
 
 void APlayer_Character::PostInitializeComponents()
@@ -51,7 +57,7 @@ void APlayer_Character::BeginPlay()
 			LocalPlayerSubsystem->AddMappingContext(pDefaultInputMapping, 0);
 		}	
 	}
-	
+
 }
 
 // Called every frame
@@ -100,7 +106,7 @@ void APlayer_Character::Interact()
 	QueryParams.AddIgnoredActor(this);
 
 	const FVector& Start = pCameraComponent->GetComponentLocation();
-	const FVector& End = Start + (pCameraComponent->GetForwardVector() * 300.0f);
+	const FVector& End = Start + (pCameraComponent->GetForwardVector() * m_flmax_raycast_lenght);
 
 	if (GetWorld()->SweepSingleByChannel(Interact_Result, Start, End, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(15.0f), QueryParams))
 	{
@@ -115,6 +121,23 @@ void APlayer_Character::Interact()
 			}
 		}
 	}
+}
+
+bool APlayer_Character::RestoreHealth(float amount)
+{
+	return false;
+	
+}
+
+bool APlayer_Character::RestoreSuitCharge(float amounth)
+{
+	return false;
+	
+}
+
+void APlayer_Character::Restore_SuitEnergy()
+{
+
 }
 
 	

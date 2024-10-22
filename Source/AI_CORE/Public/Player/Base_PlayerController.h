@@ -16,7 +16,7 @@ class AI_CORE_API ABase_PlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
-		
+	
 public:
 
 	ABase_PlayerController();

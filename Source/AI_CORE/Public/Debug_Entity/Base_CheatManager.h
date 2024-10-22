@@ -15,5 +15,5 @@ class AI_CORE_API UBase_CheatManager : public UCheatManager
 	GENERATED_BODY()
 
 	UBase_CheatManager();
-	
+
 };
