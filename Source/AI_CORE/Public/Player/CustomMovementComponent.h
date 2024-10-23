@@ -9,9 +9,11 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class AI_CORE_API UCustomMovementComponent : public UPawnMovementComponent
 {
 	GENERATED_BODY()
+
+	
 	
 };

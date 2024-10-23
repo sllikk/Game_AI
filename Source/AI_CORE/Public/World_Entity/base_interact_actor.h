@@ -26,8 +26,8 @@ class AI_CORE_API Abase_interact_actor : public AActor, public IInteract_Interfa
 	UPROPERTY(EditDefaultsOnly, Category = "Arrow", meta=(AllowPrivateAccess = "true"))
 	UArrowComponent* pArrowComponent;
 
-	UPROPERTY()
-	APlayer_Character* pPlayer_Character;
+	//UPROPERTY()
+	//APlayer_Character* pPlayer_Character;
 
 public:	
 	// Sets default values for this actor's properties
@@ -53,7 +53,7 @@ public:
 
 	bool GetActorOnSameSide() const;
 	UArrowComponent* GetArrowComponent() const;
-	APlayer_Character* GetInteractingPlayer() const;	
+	//APlayer_Character* GetInteractingPlayer() const;	
 };
 
 FORCEINLINE UArrowComponent* Abase_interact_actor::GetArrowComponent() const
@@ -66,8 +66,8 @@ FORCEINLINE bool Abase_interact_actor::GetActorOnSameSide() const
 	return blsActorOnSameSide;
 }
 
-FORCEINLINE APlayer_Character* Abase_interact_actor::GetInteractingPlayer() const
-{
-	return pPlayer_Character;
-}
+//FORCEINLINE APlayer_Character* Abase_interact_actor::GetInteractingPlayer() const
+//{
+//	return pPlayer_Character;
+//}
 

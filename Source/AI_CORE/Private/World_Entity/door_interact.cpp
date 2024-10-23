@@ -68,6 +68,7 @@ void Adoor_interact::OpenDoor(float Value)
 
 void Adoor_interact::OnSameSide()
 {
+/*
 	if (GetInteractingPlayer())
 	{
 		//const FVector& Forward = GetArrowComponent()->GetForwardVector();
@@ -76,5 +77,7 @@ void Adoor_interact::OnSameSide()
 
 		blsActorOnSameSide = blsActorOnSameSide = (FVector::DotProduct(GetInteractingPlayer()->GetActorForwardVector(), GetActorForwardVector())) >= 0;
 	}
-	}
+
+*/
+}
 

@@ -7,7 +7,7 @@ DEFINE_LOG_CATEGORY(LogInteractActor)
 
 
 Abase_interact_actor::Abase_interact_actor(const FObjectInitializer& Initializer)
-	: Super(Initializer.Get()), pArrowComponent(nullptr), pPlayer_Character(nullptr)
+	: Super(Initializer.Get()), pArrowComponent(nullptr)
 {
 	PrimaryActorTick.bCanEverTick = true;
 	
